@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.zark.android.tinytrailersutilitynew.database.UserDatabase;
 
@@ -16,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     private UserDatabase mUserDatabase;
 
     @BindView(R.id.btn_new_player) Button mBtnNewPlayer;
+    @BindView(R.id.tv_player_name) TextView mPlayerNameTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +30,8 @@ public class MainActivity extends AppCompatActivity {
             mUserDatabase = Room.databaseBuilder(
                     getApplicationContext(),
                     UserDatabase.class,
-                    "user-database").build();
+                    // TODO: remove main thread queries with LiveData
+                    "user-database").allowMainThreadQueries().build();
         }
 
         mBtnNewPlayer.setOnClickListener(new View.OnClickListener() {

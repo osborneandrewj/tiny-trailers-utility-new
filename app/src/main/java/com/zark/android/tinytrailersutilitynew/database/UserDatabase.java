@@ -10,6 +10,10 @@ import com.zark.android.tinytrailersutilitynew.models.User;
  *
  */
 
+/**
+ * When a class is annotated with @Entity and is referenced in the entities property
+ * of a @Database annotation, Room creates a database table for that entity in the database.
+ */
 @Database(entities = {User.class}, version = 1)
 public abstract class UserDatabase extends RoomDatabase {
     public abstract UserDao userDao();

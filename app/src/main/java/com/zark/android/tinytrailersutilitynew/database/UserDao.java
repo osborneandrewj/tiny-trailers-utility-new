@@ -17,6 +17,7 @@ import java.util.List;
 @Dao
 public interface UserDao {
 
+    // This name is from the class name of User.java. This is case insensitive
     @Query("SELECT * FROM user")
     List<User> getAll();
 
